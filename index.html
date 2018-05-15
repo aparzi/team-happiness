@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Team-Happiness</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div ng-app="teamHappiness" ng-controller="indexController">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="center">TEAM-HAPPINESS</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div ng-repeat="image in images" ng-class="(image.offsetClass) ? 'offset-1' : ''" class="col-md-3">
+                <img ng-click="rate($index)" class="zoom" width="{{image.width}}" height="{{image.height}}" ng-src="{{image.path}}" />
+            </div>
+        </div>
+        <div class="row">
+            <div ng-repeat="vote in votes" ng-class="(vote.offsetClass) ? 'offset-1' : ''" class="col-md-3">
+                <div class="center">
+                    <span ng-class="vote.style" class="badge">{{vote.label}}: {{vote.value}}</span>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert">
+                    A simple success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ANGULARJS -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<!-- CONTROLLERS -->
+<script src="js/controllers/controller_index.js"></script>
+<script src="js/utils.js"></script>
+</body>
+</html>
